@@ -27,6 +27,13 @@ public class DisplayLearnChose extends AppCompatActivity{
         ImageButton back_btn = findViewById(R.id.back_btn);
         back_btn.setOnClickListener(v -> finish());
 
+        Button camera_btn = findViewById(R.id.camera_btn);
+
+        camera_btn.setOnClickListener(v -> {
+            Intent i = new Intent(this, CameraX.class);
+            startActivity(i);
+        });
+
 
         };
 
