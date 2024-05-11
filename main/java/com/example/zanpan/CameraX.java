@@ -19,37 +19,6 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class CameraX extends AppCompatActivity {
 
-    //private ImageView imageView;
-
-
-//    ActivityResultLauncher<Intent> resultLauncher = registerForActivityResult(
-//            new ActivityResultContracts.StartActivityForResult(),
-//            result -> {
-//                if (result.getResultCode() == Activity.RESULT_OK) {
-//                    Intent data  = result.getData();
-//                    if(data != null) {
-//                        Bitmap bitmap;
-//                        // cancelしたケースも含む
-//                        if (data.getExtras() == null) {
-//
-//                            Log.d("debug", "cancel ?");
-//                            return;
-//                        } else {
-//                            bitmap = (Bitmap) data.getExtras().get("data");
-//                            if (bitmap != null) {
-//                                // 画像サイズを計測
-//                                int bmpWidth = bitmap.getWidth();
-//                                int bmpHeight = bitmap.getHeight();
-//                                Log.d("debug", String.format("w= %d", bmpWidth));
-//                                Log.d("debug", String.format("h= %d", bmpHeight));
-//                            }
-//                        }
-//
-//                        imageView.setImageBitmap(bitmap);
-//                    }
-//                }
-//            });
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,7 +36,7 @@ public class CameraX extends AppCompatActivity {
 
         //imageView = findViewById(R.id.image_view);
 
-        Button cameraButton = findViewById(R.id.camera_button);
+        Button cameraButton = findViewById(R.id.camera_btn);
         // lambda式
         cameraButton.setOnClickListener( v -> {
             ContentValues cv = new ContentValues();
