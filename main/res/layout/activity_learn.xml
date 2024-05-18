@@ -72,9 +72,26 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="アップロード"/>
+                        <TextView
+                            android:id="@+id/w_h_View"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:text="S:"
+                            android:textSize="10sp" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
+    <TextView
+        android:id="@+id/scaleFactorTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="688dp"
+        android:text="S:"
+        android:textSize="20sp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

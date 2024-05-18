@@ -1,9 +1,20 @@
 package com.example.zanpan;
+import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
+
+import android.net.Uri;
+
 public class BaseActivity extends AppCompatActivity{
 
     protected void setupHeader() {
@@ -23,4 +34,7 @@ public class BaseActivity extends AppCompatActivity{
         TextView pageNameTextView = findViewById(R.id.page_name);
         pageNameTextView.setText(pagename);
     }
+
+
+
 }

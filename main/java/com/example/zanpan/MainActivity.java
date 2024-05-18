@@ -40,7 +40,7 @@ public class MainActivity extends BaseActivity {
         });
 
     }
-    // カメラから読み込んだ画像を次の画面を引き渡す処理
+
     ActivityResultLauncher<Intent> startForResultTake = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             result -> {
@@ -50,23 +50,23 @@ public class MainActivity extends BaseActivity {
                     startActivity(intent);
                 }
             });
-// 内部から読み込んだ画像を次の画面を引き渡す処理
+    // 内部から読み込んだ画像を次の画面を引き渡す処理
     ActivityResultLauncher<Intent> startForResultLoad = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             result -> {
-                    Intent data = result.getData();
-                    if (data != null && data.getData() != null) {
-                        Uri uri = data.getData();
-                        Intent intent = new Intent(this, activityClass);
-                        intent.putExtra("imageUri", uri.toString());
-                        startActivity(intent);
-                    }
+                Intent data = result.getData();
+                if (data != null && data.getData() != null) {
+                    Uri uri = data.getData();
+                    Intent intent = new Intent(this, activityClass);
+                    intent.putExtra("imageUri", uri.toString());
+                    startActivity(intent);
                 }
+            }
     );
     //画像をカメラと内部どちらから取得するかの選択ダイアログ
-    private void showOptionDialog() {
+    void showOptionDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        final CharSequence[] items = {"カメラから画像を撮影する", "フォルダーから画像を選ぶ", "戻る"};
+        final CharSequence[] items = {"カメラから画像を撮影する", "フォルダーから画像を選ぶ"};
         builder.setTitle("選択してください")
                 .setItems(items, new DialogInterface.OnClickListener() {
                     @Override
@@ -78,16 +78,12 @@ public class MainActivity extends BaseActivity {
                             case 1:
                                 loadPicture();
                                 break;
-                            case 2:
-                                dialog.dismiss();
-                                break;
                         }
                     }
                 });
         builder.create().show();
     }
-    //カメラから画像を読み取る処理
-    private void takePicture() {
+    protected void takePicture() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             ContentValues values = new ContentValues();
@@ -99,7 +95,7 @@ public class MainActivity extends BaseActivity {
         }
     }
     //内部フォルダから画像を読み取る処理
-    private void loadPicture() {
+    protected void loadPicture() {
         Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startForResultLoad.launch(Intent.createChooser(intent, "Select Picture"));
     }
