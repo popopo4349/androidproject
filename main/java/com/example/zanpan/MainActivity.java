@@ -8,8 +8,7 @@ import android.widget.Button;
 import androidx.activity.EdgeToEdge;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.appcompat.app.AppCompatActivity;
-import java.io.IOException;
+
 import android.net.Uri;
 import androidx.appcompat.app.AlertDialog;
 import android.content.DialogInterface;
@@ -29,7 +28,7 @@ public class MainActivity extends BaseActivity {
 
         Button learn_btn = findViewById(R.id.learn_btn);
         learn_btn.setOnClickListener(v -> {
-            activityClass = LearnActivity.class;
+            activityClass = AnnotationActivity.class;
             showOptionDialog();
         });
 
